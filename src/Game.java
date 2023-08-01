@@ -7,8 +7,8 @@ public class Game {
         System.out.println("Macera Oyununa Hoşgeldin");
 
         System.out.print("Lütfen Bir İsim Giriniz: ");
-        // String playerName=input.next();
-        Player player = new Player("ugur");
+        String playerName = input.next();
+        Player player = new Player(playerName);
         System.out.println(player.getName() + " bu karanlık ve sisli adaya hoşgeldin..");
         System.out.println("Burada yaşananların hepsi gerçek\n");
         System.out.println("-------------");
@@ -27,11 +27,11 @@ public class Game {
             System.out.println("3- Mağara --> Ödül <Yemek>, dikkatli ol canavar çıkabilir");
             System.out.println("4- Orman --> Ödül <Odun>, dikkatli ol canavar çıkabilir");
             System.out.println("5- Nehir --> Ödül <Su>, dikkatli ol canavar çıkabilir");
-            System.out.println("6- Maden --> Ödül <Para, Silah, Zırh, diikatli ol canavar çıkabilir");
+            System.out.println("6- Maden --> Ödül <Para, Silah, Zırh, dikkatli ol canavar çıkabilir");
             System.out.println("0- Oyunu Sonlandır");
             System.out.print("Lütfen gitmek istediğiniz bölgeyi seçin: ");
             int selectLoc = input.nextInt();
-            if (selectLoc==6){
+            if (selectLoc == 6) {
 
             }
             System.out.println();
@@ -46,7 +46,7 @@ public class Game {
                     location = new ToolStore(player);
                     break;
                 case 3:
-                    location=new Cave(player);
+                    location = new Cave(player);
                     break;
                 case 4:
                     location = new Forest(player);
@@ -55,17 +55,17 @@ public class Game {
                     location = new River(player);
                     break;
                 case 6:
-                    location=new Quarry(player);
+                    location = new Quarry(player);
                     break;
                 default:
                     System.out.println("Lütfen geçerli bir değer gir");
                     break;
             }
-            if (location==null){
+            if (location == null) {
                 System.out.println("Oyun Bitti");
                 break;
             }
-            if (!location.onLocation()){
+            if (!location.onLocation()) {
                 System.out.println("Game Over!");
                 break;
             }
